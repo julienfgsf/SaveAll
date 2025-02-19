@@ -1,57 +1,9 @@
-::[Bat To Exe Converter]
-::
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnhoHGuYzdO8=
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnhoHGucnfe8=
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVuEtYZ/P1fnfH7Fd7knoFQ==
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVuEqaoOWjvqKLOxz
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVuQ5ccKNlLCCLIA=
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVuU8e7DI5aeELOpeuwvgeZpN
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVuU2d8KJlOTDcK4X5kmE
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVuUzcY2WiPrebbBd7knoFQ==
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVuUyd4vO1rHDcq5DpxWqcZohtg==
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVuUweoXe2aDDcq5DpxWqcZohtg==
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVus8d4HNl+bAJOwfig==
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVus7dt2WivqKLOxz
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVusxbIOWgvqKLOxz
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkEUVvU2dp/P0qaLIeReuwvgeZpN
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnkAYU+M7dMHewrHu
-::fBE1pAF6MU+EWH3eyGQFAjIUbTSyAFi7ELA95OTH/PiEnlcRXeBuNovX1tQ=
-::YAwzoRdxOk+EWAjk
-::fBw5plQjdCuDJH+x3mtwCStkcDeDKm6bCrkg+/r40/mGtEhdHLN2NobY1dQ=
-::YAwzuBVtJxjWCl3EqQJgSA==
-::ZR4luwNxJguZRRnk
-::Yhs/ulQjdF+5
-::cxAkpRVqdFKZSDk=
-::cBs/ulQjdF+5
-::ZR41oxFsdFKZSDk=
-::eBoioBt6dFKZSDk=
-::cRo6pxp7LAbNWATEpSI=
-::egkzugNsPRvcWATEpSI=
-::dAsiuh18IRvcCxnZtBJQ
-::cRYluBh/LU+EWAnk
-::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJiZks0
-::ZQ05rAF9IBncCkqN+0xwdVsGAlTi
-::ZQ05rAF9IAHYFVzEqQIDKQ1RbQiOXA==
-::eg0/rx1wNQPfEVWB+kM9LVsJDDeDKm6bCrl8
-::fBEirQZwNQPfEVWB+kM9LVsJDDeDKm6bCrl8
-::cRolqwZ3JBvQF1fEqQJQ
-::dhA7uBVwLU+EWH+R/ks2IRdZLA==
-::YQ03rBFzNR3SWATE3k8xILidDCTCGn6wD7MV5OWb
-::dhAmsQZ3MwfNWATElA==
-::ZQ0/vhVqMQ3MEVWAtB9wSA==
-::Zg8zqx1/OA3MEVWAtB9wSA==
-::dhA7pRFwIByZRRmu2WMYDVsGHFXaXA==
-::Zh4grVQjdCuDJH+x3mtwCStkcDeDKm6bCrkguqap09mGtEg8WO5xfZfeug==
-::YB416Ek+ZG8=
-::
-::
-::978f952a14a936cc963da21a135fa983
-@echo off
+@shift /0
+rem @echo off
 mode con: lines=32 cols=91
 
 ::::VERSION::::
-SET VERSION=2.2
+SET VERSION=2.3
 :::::::::::::::
 
 SET NEWVER=0
@@ -59,11 +11,13 @@ Set GENSTR=
 set NEWHOME=
 set NEWGENSTR=
 set HOME=
-set PIT=0
+set ICCSTR=
+set PPP=0
+set EAL=0
 set SCREENS=0
 set PROFORMA=0
 set ARCHIVE=
-set ONLINEUPD=
+set ONLINEUPD=https://raw.githubusercontent.com/julienfgsf/SaveAll/refs/heads/master/version
 
 del /q version > nul
 del /q update.cmd > nul
@@ -71,90 +25,61 @@ cls
 
 Title SaveAll v%VERSION%
 
-IF "%1"=="-?" GOTO README
-IF "%1"=="-a" set ARCHIVE=%2
-IF "%3"=="-a" set ARCHIVE=%4
-IF "%1"=="-u" set ONLINEUPD=%2
-IF "%3"=="-u" set ONLINEUPD=%4
-	IF NOT DEFINED ONLINEUPD set ONLINEUPD=https://www.dropbox.com/s/woia9vxppmxebf0/version?dl=1
-
 bitsadmin /transfer version %ONLINEUPD% "%cd%\version"
+
 cls
 					echo.
-					echo       ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-					echo       º                                                                             º
-					echo       º             ÛÛ»   ÛÛ»ÛÛÛÛÛÛ» ÛÛÛÛÛÛ»  ÛÛÛÛÛ» ÛÛÛÛÛÛÛÛ»ÛÛÛÛÛÛÛ»              º
-					echo       º             ÛÛº   ÛÛºÛÛÉÍÍÛÛ»ÛÛÉÍÍÛÛ»ÛÛÉÍÍÛÛ»ÈÍÍÛÛÉÍÍ¼ÛÛÉÍÍÍÍ¼              º
-					echo       º             ÛÛº   ÛÛºÛÛÛÛÛÛÉ¼ÛÛº  ÛÛºÛÛÛÛÛÛÛº   ÛÛº   ÛÛÛÛÛ»                º
-					echo       º             ÛÛº   ÛÛºÛÛÉÍÍÍ¼ ÛÛº  ÛÛºÛÛÉÍÍÛÛº   ÛÛº   ÛÛÉÍÍ¼                º
-					echo       º             ÈÛÛÛÛÛÛÉ¼ÛÛº     ÛÛÛÛÛÛÉ¼ÛÛº  ÛÛº   ÛÛº   ÛÛÛÛÛÛÛ»              º
-					echo       º              ÈÍÍÍÍÍ¼ ÈÍ¼     ÈÍÍÍÍÍ¼ ÈÍ¼  ÈÍ¼   ÈÍ¼   ÈÍÍÍÍÍÍ¼              º
-					echo       º                                                                             º
-					echo       ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+					echo       Ã‰ÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÂ»
+					echo       Âº                                                                             Âº
+					echo       Âº             Ã›Ã›Â»   Ã›Ã›Â»Ã›Ã›Ã›Ã›Ã›Ã›Â» Ã›Ã›Ã›Ã›Ã›Ã›Â»  Ã›Ã›Ã›Ã›Ã›Â» Ã›Ã›Ã›Ã›Ã›Ã›Ã›Ã›Â»Ã›Ã›Ã›Ã›Ã›Ã›Ã›Â»              Âº
+					echo       Âº             Ã›Ã›Âº   Ã›Ã›ÂºÃ›Ã›Ã‰ÃÃÃ›Ã›Â»Ã›Ã›Ã‰ÃÃÃ›Ã›Â»Ã›Ã›Ã‰ÃÃÃ›Ã›Â»ÃˆÃÃÃ›Ã›Ã‰ÃÃÂ¼Ã›Ã›Ã‰ÃÃÃÃÂ¼              Âº
+					echo       Âº             Ã›Ã›Âº   Ã›Ã›ÂºÃ›Ã›Ã›Ã›Ã›Ã›Ã‰Â¼Ã›Ã›Âº  Ã›Ã›ÂºÃ›Ã›Ã›Ã›Ã›Ã›Ã›Âº   Ã›Ã›Âº   Ã›Ã›Ã›Ã›Ã›Â»                Âº
+					echo       Âº             Ã›Ã›Âº   Ã›Ã›ÂºÃ›Ã›Ã‰ÃÃÃÂ¼ Ã›Ã›Âº  Ã›Ã›ÂºÃ›Ã›Ã‰ÃÃÃ›Ã›Âº   Ã›Ã›Âº   Ã›Ã›Ã‰ÃÃÂ¼                Âº
+					echo       Âº             ÃˆÃ›Ã›Ã›Ã›Ã›Ã›Ã‰Â¼Ã›Ã›Âº     Ã›Ã›Ã›Ã›Ã›Ã›Ã‰Â¼Ã›Ã›Âº  Ã›Ã›Âº   Ã›Ã›Âº   Ã›Ã›Ã›Ã›Ã›Ã›Ã›Â»              Âº
+					echo       Âº              ÃˆÃÃÃÃÃÂ¼ ÃˆÃÂ¼     ÃˆÃÃÃÃÃÂ¼ ÃˆÃÂ¼  ÃˆÃÂ¼   ÃˆÃÂ¼   ÃˆÃÃÃÃÃÃÂ¼              Âº
+					echo       Âº                                                                             Âº
+					echo       ÃˆÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÂ¼
 					echo       SaveAll ver %VERSION%
 					echo.
 					echo.
 
 		for /f "tokens=2 delims= " %%a in ('findstr "ver" "version"') do set NEWVER=%%a
-		IF %VERSION% LSS %NEWVER%	(	echo Une nouvelle version est disponible ^(%NEWVER%^) !
-										Choice /C:on /M:"Voulez-vous effectuer la mise … jour ?" )
+		IF %VERSION% LSS %NEWVER%	(	echo New version available ^(%NEWVER%^) !
+										Choice /C:yn /M:"Do you want to update ?" )
 											IF %errorlevel%==1 GOTO UPDATE
 
-GOTO DEBUT
+GOTO START
 
-:README
-echo.
-echo SaveAll v%VERSION%
-echo.
-echo Description :
-echo    Sauvegarde les fichiers XMF essentiels.
-echo      ^> Listes d'action Pitstop (*.EAL)
-echo      ^> Profiles de contr“le Pitstop (*.PPP)
-echo      ^> Screens Sets XMF
-echo      ^> Dossier Proforma XMF (repŠres perso, impo, etc)
-echo.
-echo.
-echo Utilisation :
-echo    SaveAll.exe [-a archive.7z] [-u http://url]
-echo.
-echo ParamŠtres
-echo    -a    archive.7z         Sp‚cifie le nom de l'archive dans laquelle
-echo                             seront sauvegard‚s les fichiers.
-echo                             L'archive par d‚faut sera SaveAll.7z
-echo.
-echo    -u    http://url		 Sp‚cifie l'url de t‚l‚chargement de la mise
-echo                             … jour.
-echo.
-echo    -?                       Affiche ce message d'aide.
-GOTO EOF
 
-:DEBUT
+:START
 DEL /q version
 cls
 set ERR=0
 cls
 					echo.
-					echo       ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-					echo       º                                                                             º
-					echo       º          ÛÛÛÛÛÛÛ» ÛÛÛÛÛ» ÛÛ»   ÛÛ»ÛÛÛÛÛÛÛ» ÛÛÛÛÛ» ÛÛ»     ÛÛ»               º
-					echo       º          ÛÛÉÍÍÍÍ¼ÛÛÉÍÍÛÛ»ÛÛº   ÛÛºÛÛÉÍÍÍÍ¼ÛÛÉÍÍÛÛ»ÛÛº     ÛÛº               º
-					echo       º          ÛÛÛÛÛÛÛ»ÛÛÛÛÛÛÛºÛÛº   ÛÛºÛÛÛÛÛ»  ÛÛÛÛÛÛÛºÛÛº     ÛÛº               º
-					echo       º          ÈÍÍÍÍÛÛºÛÛÉÍÍÛÛºÈÛÛ» ÛÛÉ¼ÛÛÉÍÍ¼  ÛÛÉÍÍÛÛºÛÛº     ÛÛº               º
-					echo       º          ÛÛÛÛÛÛÛºÛÛº  ÛÛº ÈÛÛÛÛÉ¼ ÛÛÛÛÛÛÛ»ÛÛº  ÛÛºÛÛÛÛÛÛÛ»ÛÛÛÛÛÛÛ»          º
-					echo       º          ÈÍÍÍÍÍÍ¼ÈÍ¼  ÈÍ¼  ÈÍÍÍ¼  ÈÍÍÍÍÍÍ¼ÈÍ¼  ÈÍ¼ÈÍÍÍÍÍÍ¼ÈÍÍÍÍÍÍ¼          º
-					echo       º                                                                     ver %VERSION% º
-					echo       ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+					echo       Ã‰ÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÂ»
+					echo       Âº                                                                             Âº
+					echo       Âº          Ã›Ã›Ã›Ã›Ã›Ã›Ã›Â» Ã›Ã›Ã›Ã›Ã›Â» Ã›Ã›Â»   Ã›Ã›Â»Ã›Ã›Ã›Ã›Ã›Ã›Ã›Â» Ã›Ã›Ã›Ã›Ã›Â» Ã›Ã›Â»     Ã›Ã›Â»               Âº
+					echo       Âº          Ã›Ã›Ã‰ÃÃÃÃÂ¼Ã›Ã›Ã‰ÃÃÃ›Ã›Â»Ã›Ã›Âº   Ã›Ã›ÂºÃ›Ã›Ã‰ÃÃÃÃÂ¼Ã›Ã›Ã‰ÃÃÃ›Ã›Â»Ã›Ã›Âº     Ã›Ã›Âº               Âº
+					echo       Âº          Ã›Ã›Ã›Ã›Ã›Ã›Ã›Â»Ã›Ã›Ã›Ã›Ã›Ã›Ã›ÂºÃ›Ã›Âº   Ã›Ã›ÂºÃ›Ã›Ã›Ã›Ã›Â»  Ã›Ã›Ã›Ã›Ã›Ã›Ã›ÂºÃ›Ã›Âº     Ã›Ã›Âº               Âº
+					echo       Âº          ÃˆÃÃÃÃÃ›Ã›ÂºÃ›Ã›Ã‰ÃÃÃ›Ã›ÂºÃˆÃ›Ã›Â» Ã›Ã›Ã‰Â¼Ã›Ã›Ã‰ÃÃÂ¼  Ã›Ã›Ã‰ÃÃÃ›Ã›ÂºÃ›Ã›Âº     Ã›Ã›Âº               Âº
+					echo       Âº          Ã›Ã›Ã›Ã›Ã›Ã›Ã›ÂºÃ›Ã›Âº  Ã›Ã›Âº ÃˆÃ›Ã›Ã›Ã›Ã‰Â¼ Ã›Ã›Ã›Ã›Ã›Ã›Ã›Â»Ã›Ã›Âº  Ã›Ã›ÂºÃ›Ã›Ã›Ã›Ã›Ã›Ã›Â»Ã›Ã›Ã›Ã›Ã›Ã›Ã›Â»          Âº
+					echo       Âº          ÃˆÃÃÃÃÃÃÂ¼ÃˆÃÂ¼  ÃˆÃÂ¼  ÃˆÃÃÃÂ¼  ÃˆÃÃÃÃÃÃÂ¼ÃˆÃÂ¼  ÃˆÃÂ¼ÃˆÃÃÃÃÃÃÂ¼ÃˆÃÃÃÃÃÃÂ¼          Âº
+					echo       Âº                                                                     ver %VERSION% Âº
+					echo       ÃˆÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÃÂ¼
 					echo.
 					echo.
 					echo.
 					
 REM Recherche du dossier XMF dans la base de registre
-IF NOT DEFINED HOME	(	echo Recherche du dossier XMF ...
+REM Search for XMF folder in registry
+
+IF NOT DEFINED HOME	(	echo Searching XMF folder...
 						ping -n 2 127.0.0.1 > nul
 						for /f "tokens=2*" %%a in ('reg query "HKCU\Software\FujiFilm\XMF\Installer\Prefs" /v Home') do set HOME=%%b
 					)
 					
-					IF NOT DEFINED HOME 				(	echo   ^> Dossier d'instalaltion XMF introuvable !
+					IF NOT DEFINED HOME 				(	echo   ^> Cannot find XMF install folder !
 															echo.
 															set ERR=1
 															GOTO CHOICE
@@ -164,30 +89,32 @@ IF NOT DEFINED HOME	(	echo Recherche du dossier XMF ...
 					set HOME=%HOME%\
 					set HOME=%HOME:\\=\%
 
-					IF NOT EXIST "%HOME%"				(	echo   ^> Dossier d'instalaltion XMF introuvable !
+					IF NOT EXIST "%HOME%"				(	echo   ^> Cannot find XMF install folder !
 															echo.
 															set ERR=1
 															GOTO CHOICE
 														)
 														
 
-echo   ^> Emplacement de XMF: "%HOME%"
+echo   ^> XMF Location: "%HOME%"
 echo.
 
-					IF NOT EXIST "%HOME%install.log"	(	echo   ^> Dossier d'installation incomplet !
-															echo        Fichier install.log manquant
+					IF NOT EXIST "%HOME%install.log"	(	echo   ^> Incomplete installation folder !
+															echo        Missing install.log file
 															echo.
 															set ERR=1
 															GOTO CHOICE
 														)
 
-REM Recherche du Genstore via le fichier INSTALL.LOG
-IF NOT DEFINED GENSTR	(	echo Recherche du Genstore ...
+REM Recherche du GENSTORE via le fichier INSTALL.LOG
+REM Search for GENSTORE via INSTALL.LOG file
+
+IF NOT DEFINED GENSTR	(	echo Searching for GENSTORE ...
 							ping -n 2 127.0.0.1 > nul
 							for /f "tokens=5* delims= " %%a in ('findstr "(working)" "%HOME%install.log"') do set GENSTR=%%a %%b"
 						)
 						
-					IF NOT DEFINED GENSTR				(	echo   ^> Dossier Genstore introuvable !
+					IF NOT DEFINED GENSTR				(	echo   ^> Cannot find GENSTORE folder !
 															echo.
 															set ERR=2
 															GOTO CHOICE
@@ -206,10 +133,9 @@ IF NOT DEFINED GENSTR	(	echo Recherche du Genstore ...
 															set GENSTR=%cd%\
 															pushd %HOMEPATH%
 														
-
 :LOCALNAME
 
-					IF NOT EXIST "%GENSTR%"				(	echo   ^> Dossier Genstore introuvable !
+					IF NOT EXIST "%GENSTR%"				(	echo   ^> Cannot find GENSTORE folder !
 															echo.
 															set ERR=2
 															GOTO CHOICE
@@ -219,20 +145,69 @@ IF NOT DEFINED GENSTR	(	echo Recherche du Genstore ...
 
 
 					
-echo   ^> Emplacement du Genstore: "%GENSTR%"
+echo   ^> GENSTORE location: "%GENSTR%"
 echo.
 
-					IF NOT EXIST "%GENSTR%Proforma"		(	echo   ^> Le dossier Genstore ne semble pas correct
-															echo        Dossier Proforma manquant
+					IF NOT EXIST "%GENSTR%Proforma"		(	echo   ^> The GENSTORE folder does not seem correct
+															echo        Missing PROFORMA folder
+															echo.
+														)
+														
+														
+REM Recherche du ICCSTORE via le fichier INSTALL.LOG
+REM Search for ICCSTORE via INSTALL.LOG file
+
+IF NOT DEFINED ICCSTR	(	echo Searching for ICCSTORE ...
+							ping -n 2 127.0.0.1 > nul
+							for /f "tokens=5* delims= " %%a in ('findstr "ICCSTORE," "%HOME%install.log"') do set ICCSTR=%%a %%b"
+						)
+						
+					IF NOT DEFINED ICCSTR				(	echo   ^> Cannot find ICCSTORE folder !
+															echo.
+															set ERR=2
+															GOTO CHOICE
+														)
+
+					set ICCSTR=%ICCSTR: "=%
+					set ICCSTR=%ICCSTR:"=%
+					set ICCSTR=%ICCSTR:/=\%
+					set ICCSTR=%ICCSTR%\
+					set ICCSTR=%ICCSTR:\\=\%
+
+					IF %ICCSTR:~0,1% NEQ \ GOTO ICCLOCALNAME
+															set ICCSTR=\%ICCSTR%
+															set HOMEPATH=%cd%
+															pushd %ICCSTR%
+															set ICCSTR=%cd%\
+															pushd %HOMEPATH%
+
+
+:ICCLOCALNAME
+
+					IF NOT EXIST "%ICCSTR%"				(	echo   ^> Cannot find ICCSTORE folder !
+															echo.
+															set ERR=3
+															GOTO CHOICE
+														)
+
+					
+
+
+					
+echo   ^> ICCSTORE location: "%ICCSTR%"
+echo.
+
+					IF NOT EXIST "%ICCSTR%DevLinks"		(	echo   ^> The ICCSTORE folder does not seem correct
+															echo        Missing DevLinks folder
 															echo.
 														)
 
 :CHOICE
 echo.
 echo.
-IF %ERR% NEQ 0	(			echo Appuyer sur E pour Editer les chemins ou Q pour Quitter
+IF %ERR% NEQ 0	(			echo Press E to Edit paths or Q to Quit
 							choice /C:EQ
-				) ELSE (	echo Appuyer sur E pour Editer les chemins, Q pour Quitter ou C pour Continuer
+				) ELSE (	echo Press E to Edit paths, C to Continue, or Q to Quit
 							choice /C:EQC )
 echo.
 					IF %errorlevel%==1 GOTO EDITFOLDER
@@ -243,67 +218,95 @@ echo.
 :EDITFOLDER
 
 REM Edition des dossiers XMF et Genstore
-IF %ERR%==2 GOTO ERR2
+REM Editing XMF and Genstore folders
 
-				echo Dossier d'instalaltion XMF actuel : "%HOME%"
-				echo        Nouvel emplacement (laisser vide si aucune modification ou * pour autod‚tection^)
+IF %ERR%==2 GOTO ERR2
+IF %ERR%==3 GOTO ERR3
+
+				echo Current XMF installation folder : "%HOME%"
+				echo        New location (leave blank if no changes or * for auto-detect^)
 				set /p NEWHOME= ^>
 					IF DEFINED NEWHOME	set HOME=%NEWHOME%
 					IF "%NEWHOME%"=="*" set HOME=
 				echo.
-				IF NOT DEFINED HOME (echo *autod‚tection*) ELSE (echo %HOME%)
+				IF NOT DEFINED HOME (echo *auto-detect*) ELSE (echo %HOME%)
 				echo.
-				IF %ERR%==1 GOTO DEBUT
+				IF %ERR%==1 GOTO START
 
 	:ERR2
-				echo Dossier Genstore actuel : "%GENSTR%"
-				echo        Nouvel emplacement (laisser vide si aucune modification ou * pour autod‚tection^)
+				echo Current GENSTORE folder : "%GENSTR%"
+				echo        New location (leave blank if no changes or * for auto-detect^)
 				set /p NEWGENSTR= ^>
 					IF DEFINED NEWGENSTR set GENSTR=%NEWGENSTR%
 					IF "%NEWGENSTR%"=="*" set GENSTR=
-				GOTO DEBUT
+				echo.
+				IF NOT DEFINED GENSTR (echo *auto-detect*) ELSE (echo %HOME%)
+				echo.
+				GOTO START
 
+	:ERR3
+				echo Current ICCSTORE folder : "%ICCSTR%"
+				echo        New location (leave blank if no changes or * for auto-detect^)
+				set /p NEWICCSTR= ^>
+					IF DEFINED NEWICCSTR set ICCSTR=%NEWICCSTR%
+					IF "%NEWICCSTR%"=="*" set ICCSTR=
+				echo.
+				IF NOT DEFINED ICCSTR (echo *auto-detect*) ELSE (echo %HOME%)
+				echo.
+				GOTO START
+				
 
 :PROCESS
 
 REM Sauvegarde des fichiers
-echo D‚but SAVEALL
+REM Saving files
+echo Starting SAVEALL
 echo.
 IF NOT DEFINED ARCHIVE set ARCHIVE=SaveAll.7z
 
 IF EXIST %ARCHIVE% RENAME %ARCHIVE% "%date:/=%-%time::=%---%ARCHIVE%"
 
-echo Sauvegarde des fichiers vers %ARCHIVE%
+echo Saving files to %ARCHIVE%
 ping 127.0.0.0 > nul
 
 7z a %ARCHIVE% "%GENSTR%Proforma"
-	IF %errorlevel% NEQ 0 set PIT=1
+	set PROFORMA=%errorlevel%
 7z a %ARCHIVE% "%HOME%data\Stabilizer\Preflight\PP*.ppp"
-	IF %errorlevel% NEQ 0 set PIT=1
+	set PPP=%errorlevel%
 7z a %ARCHIVE% "%HOME%data\Stabilizer\Preflight\AL*.eal"
-	IF %errorlevel% NEQ 0 set SCREENS=1
+	set EAL=%errorlevel%
 7z a %ARCHIVE% "%HOME%data\screens"
-	IF %errorlevel% NEQ 0 set PROFORMA=1
+	set SCREENS=%errorlevel%
+7z a %ARCHIVE% "%ICCSTR%"
+	set ICC=%errorlevel%
 
 echo.
 echo.
 echo.
-IF %PIT%==0	( echo Les scripts d'action et profils Pitstop ont ‚t‚ archiv‚s avec succŠs !
-	) ELSE	( echo       ! Erreur lors de l'archivage des fichiers Pitstop ! )
+IF %PPP%==0	( echo PPP files saved successfully !
+	) ELSE	( echo       ! Error while saving PPP files ! )
 
 echo.
 echo.
-IF %SCREENS%==0	( echo Les Screens Sets ont ‚t‚ archiv‚s !
-		) ELSE	( echo       ! Erreur lors de l'archivage des Screens Sets ! )
+IF %EAL%==0	( echo EAL files saved successfully !
+	) ELSE	( echo       ! Error while saving EAL files ! )
 
 echo.
 echo.
-IF %PROFORMA%==0	( echo Le dossier Proforma a ‚t‚ archiv‚ avec succŠs !
-			) ELSE	( echo       ! Erreur lors de l'archivage du dossier Proforma ! )
+IF %SCREENS%==0	( echo Screen Sets saved successfully !
+		) ELSE	( echo       ! Error while saving Screen Sets ! )
 
 echo.
 echo.
-echo   ^> Fichier d'archivage : %cd%\%ARCHIVE%
+IF %PROFORMA%==0	( echo PROFORMA folder saved successfully !
+			) ELSE	( echo       ! Error while saving PROFORMA ! )
+echo.
+echo.
+IF %ICC%==0	( echo ICCSTORE folder saved successfully !
+			) ELSE	( echo       ! Error while saving ICCSTORE ! )
+echo.
+echo.
+echo   ^> Saved file : %cd%\%ARCHIVE%
 echo.
 echo.
 echo.
@@ -314,17 +317,18 @@ GOTO EOF
 
 :UPDATE
 
-echo Mise … jour en cours...
+echo Update in progress...
 ping 127.0.0.0 > nul
 
 for /f "tokens=2 delims= " %%a in ('findstr "url" "version"') do set UPDATE=%%a
-for /f "tokens=1 delims= " %%i in ('megadl %UPDATE% --path="%cd%\update" ^| findstr Downloaded') do set RESULT=%%i
+ECHO update FILE: %UPDATE%
+pause
 del /q version
 
-	IF NOT DEFINED RESULT	(	echo !! Erreur lors de la mise … jour !!
+	IF NOT DEFINED RESULT	(	echo !! Update error !!
 								RMDIR /S /Q temp
 								pause
-								GOTO DEBUT )
+								GOTO START )
 									
         ECHO @echo off> update.cmd
 		ECHO RENAME SaveAll.exe SaveAll.exe.old>> update.cmd
@@ -334,7 +338,7 @@ del /q version
 		ECHO exit>> update.cmd
 
 start update.cmd
-exit
+REM exit
 
 
 :EOF
