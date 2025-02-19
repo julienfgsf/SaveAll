@@ -1,5 +1,5 @@
 @shift /0
-rem @echo off
+@echo off
 mode con: lines=32 cols=91
 
 ::::VERSION::::
@@ -17,14 +17,16 @@ set EAL=0
 set SCREENS=0
 set PROFORMA=0
 set ARCHIVE=
+set UPDATE=
 set ONLINEUPD=https://raw.githubusercontent.com/julienfgsf/SaveAll/refs/heads/master/version
 
 del /q version > nul
-del /q update.cmd > nul
+del /q update.bat > nul
 cls
 
 Title SaveAll v%VERSION%
 
+bitsadmin /cache /clear
 bitsadmin /transfer version %ONLINEUPD% "%cd%\version"
 
 cls
@@ -317,28 +319,26 @@ GOTO EOF
 
 :UPDATE
 
-echo Update in progress...
+echo Fetching update...
 ping 127.0.0.0 > nul
-
 for /f "tokens=2 delims= " %%a in ('findstr "url" "version"') do set UPDATE=%%a
-ECHO update FILE: %UPDATE%
-pause
 del /q version
 
-	IF NOT DEFINED RESULT	(	echo !! Update error !!
-								RMDIR /S /Q temp
+	IF NOT DEFINED UPDATE	(	echo !! Update error !!
 								pause
 								GOTO START )
-									
-        ECHO @echo off> update.cmd
-		ECHO RENAME SaveAll.exe SaveAll.exe.old>> update.cmd
-		ECHO RENAME update SaveAll.exe>> update.cmd
-		ECHO start SaveAll.exe>> update.cmd
-		ECHO del /q SaveAll.exe.old>> update.cmd
-		ECHO exit>> update.cmd
 
-start update.cmd
-REM exit
+bitsadmin /cache /clear
+bitsadmin /transfer Update %UPDATE% "%cd%\update.bat"
+
+echo erreur : %errorlevel%
+	IF %errorlevel% NEQ 0	(	echo !! Update error !!
+								pause
+								GOTO START )
+							
+
+start update.bat
+exit
 
 
 :EOF
