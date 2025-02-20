@@ -32,3 +32,4 @@ ping 127.0.0.1 > nul
 
 bitsadmin /cache /clear
 bitsadmin /transfer version https://github.com/julienfgsf/SaveAll/raw/refs/heads/master/SaveAll.bat "%cd%\SaveAll.bat"
+pause
