@@ -336,7 +336,7 @@ del /q version
 bitsadmin /cache /clear
 bitsadmin /transfer Update %UPDATE% "%cd%\update.bat"
 
-echo erreur : %errorlevel%
+echo error : %errorlevel%
 	IF %errorlevel% NEQ 0	(	echo !! Update error !!
 								pause
 								GOTO START )
