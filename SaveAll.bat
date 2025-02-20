@@ -4,7 +4,7 @@ mode con: lines=32 cols=91
 
 
 ::::VERSION::::
-SET VERSION=2.2
+SET VERSION=2.3
 :::::::::::::::
 
 SET NEWVER=0
