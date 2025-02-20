@@ -49,7 +49,6 @@ cls
 					echo.
 					echo.
 
-goto EOF
 
 		for /f "tokens=2 delims= " %%a in ('findstr "ver" "version"') do set NEWVER=%%a
 		IF %VERSION% LSS %NEWVER%	(	echo New version available ^(%NEWVER%^) !
